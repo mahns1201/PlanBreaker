@@ -29,7 +29,6 @@ class _MyAppState extends State<MyApp> {
               HomeScreen(),
               Container(child: Center(child: Text('달성기록'))),
               Lettere(),
-              //ontainer(child: Center(child: Text('설정')))
               MyAp(),
             ],
           ),
@@ -39,3 +38,32 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+// void main() => runApp(MyApp());
+
+// class MyApp extends StatelessWidget {
+//     Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'PlanBreaker',
+//       theme: ThemeData(
+//           brightness: Brightness.dark,
+//           primaryColor: Colors.black,
+//           accentColor: Colors.white),
+//       home: DefaultTabController(
+//         length: 4,
+//         child: Scaffold(
+//           body: TabBarView(
+//             physics: NeverScrollableScrollPhysics(),
+//             children: <Widget>[
+//               HomeScreen(),
+//               Container(child: Center(child: Text('달성기록'))),
+//               Lettere(),
+//               MyAp(),
+//             ],
+//           ),
+//           bottomNavigationBar: Bottom(),
+//         ),
+//       ),
+//     );
+//   }
+// }
