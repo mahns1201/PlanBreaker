@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:planbreaker/widget/Bottombar.dart';
 import 'package:planbreaker/screen/home_screen.dart';
+import 'package:planbreaker/screen/letter_screen.dart';
+import 'package:planbreaker/screen/setting_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,8 +28,9 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               HomeScreen(),
               Container(child: Center(child: Text('달성기록'))),
-              Container(child: Center(child: Text('편지'))),
-              Container(child: Center(child: Text('설정')))
+              Lettere(),
+              //ontainer(child: Center(child: Text('설정')))
+              MyAp(),
             ],
           ),
           bottomNavigationBar: Bottom(),

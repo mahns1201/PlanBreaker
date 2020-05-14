@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyAp());
-
 class MyAp extends StatelessWidget {
 
   bool toggleValue = false;
@@ -14,7 +12,6 @@ class MyAp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         body: Center(
           child: AnimatedContainer(
@@ -55,8 +52,6 @@ class MyAp extends StatelessWidget {
           ),
         )
       );
-      
-   
     }
   }
 

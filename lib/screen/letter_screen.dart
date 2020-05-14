@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(Lettere());
-
 void ma() {
   runApp(MaterialApp(
     initialRoute: '/',
