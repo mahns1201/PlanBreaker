@@ -16,17 +16,22 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context)  {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/skybg.png"),fit: BoxFit.cover
-          ),
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(
+        //     image: AssetImage("images/skybg.png"),fit: BoxFit.cover
+        //   ),
+        // ),
+        child: Stack(
+          children: <Widget>[
+            MyPopupMenu(),
+            HomeView(),
+            //TodoPack(),
+          ],
         ),
-        child: MyPopupMenu(),
       )
     );
   }
 }
-
 
 class MyPopupMenu extends StatefulWidget {
   @override
@@ -39,7 +44,6 @@ class _MyPopupMenuState extends State<MyPopupMenu> {
   void _showCustomMenu() {
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
     //print('hihi');
-
     showMenu(
       context: context, 
       position: RelativeRect.fromRect(
@@ -75,10 +79,11 @@ class AddDeleteEntry extends PopupMenuEntry<int> {
 }
 
 class _AddDeleteEntryState extends State<AddDeleteEntry> {
-  void _add() {
-    //Scaffold.of(context).showSnackBar(SnackBar(content: Text('Tap')));
-    Navigator.pop(context, 1);
-    
+  Widget _add() {
+    print('hihi');
+   
+    //Navigator.pop(context, 1);
+    //여기서 추가를 해서, homescreenstate에 폴더가 추가되야함.
   }
 
   // void _delete() {
@@ -89,7 +94,7 @@ class _AddDeleteEntryState extends State<AddDeleteEntry> {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Expanded(child: FlatButton(onPressed: _add, child: Text('추가'))),
+        Expanded(child: FlatButton(onPressed: _add, child: Text('추가'))), //onpressed에 바로 클래스 넣어버리기
         //Expanded(child: Text('삭제', textAlign: TextAlign.center,)),
         Expanded(child: Text('삭제', textAlign: TextAlign.center,)),
       ],
