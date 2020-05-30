@@ -4,8 +4,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:planbreaker/widget/WiseSaying.dart';
 import 'package:planbreaker/widget/Bottombar.dart';
-//import 'package:planbreaker/screen/home_screen.dart'; 명언 출력 if문으로 !
-import 'package:planbreaker/screen/letter_screen.dart';
+//import 'package:planbreaker/screen/home_screen.dart';    //명언 출력 if문으로 !
+import 'package:planbreaker/screen/letter_screen.dart';    //Demo와 연동해서 사용
+import 'package:planbreaker/screen/LetterScreenDemo.dart';    //Letter Demo (연동 후 삭제)
 import 'package:planbreaker/screen/setting_screen.dart';
 
 void main() => runApp(MyApp());
@@ -80,7 +81,8 @@ class _HomeWidgetState extends State<HomeWidget> {
             children: <Widget>[
               WiseSaying(),    // 나중에 파이차트 부분이 구현완료 되면, if문으로 호출! (home screen 자리)
               Container(child: Center(child: Text('달성기록'))),
-              Lettere(),
+              FirestoreFirstDemo(),
+              //Lettere(),
               Setting(),
             ],
           ),

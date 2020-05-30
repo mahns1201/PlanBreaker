@@ -13,7 +13,6 @@ void ma() {
 
 //------------------------------------------------
 
-
 class Lettere extends StatefulWidget { 
     @override 
     State createState() => LettereState(); 
@@ -65,12 +64,12 @@ class LettereState extends State<Lettere> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-            Text("${selectedDate.toLocal()}"),
-            SizedBox(height: 20.0,),
-            RaisedButton(
-              onPressed: () => _selectDate(context),
-              child: Text('Select date'),
-            ),
+          Text("${selectedDate.toLocal()}"),
+          SizedBox(height: 20.0,),
+          RaisedButton(
+            onPressed: () => _selectDate(context),
+            child: Text('Select date'),
+          ),
           
           Flexible(
             child: TextField( 
@@ -78,15 +77,15 @@ class LettereState extends State<Lettere> {
               onSubmitted: _handleSubmitted, 
               decoration: new InputDecoration.collapsed( 
                 hintText: "Letter"),
-         ), 
-         ),
+            ), 
+          ),
          
-         Container(
-           margin: const EdgeInsets.symmetric(horizontal:4.0),
-           child: IconButton(
-             icon: Icon(Icons.send),
-             onPressed: () => _handleSubmitted(_textController.text)),
-         ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal:4.0),
+            child: IconButton(
+              icon: Icon(Icons.send),
+              onPressed: () => _handleSubmitted(_textController.text)),
+          ),
         ],
       )
     );
