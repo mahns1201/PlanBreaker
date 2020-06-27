@@ -1,70 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:planbreaker/screen/Tab_Screen.dart';
 
 class WiseSaying extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Wise Saying',
-      theme: ThemeData(
-          brightness: Brightness.dark,
-          primaryColor: Colors.black,
-          accentColor: Colors.white),
-      home: Scaffold(
-        body: Container(
-          child: Center(child: MyLayout()),
-        ),
+    return AlertDialog(
+      shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(color: Colors.black)
+                    ),
+                    
+      content: StreamBuilder(
+          stream: Firestore.instance.collection('wise-saying').snapshots(),
+          builder: (context, snapshot){
+            if (! snapshot.hasData) return Text("Loading data...");
+            return Text(
+              snapshot.data.documents[0]['today'],
+              style: TextStyle(
+                fontSize: 20, color: Colors.white
+              )
+            );
+          }
       ),
-    );
-  }
-}
-
-class MyLayout extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: RaisedButton(
-        color: Colors.black,
-        child: Text('오늘의 명언 보기'),
-        onPressed: () {
-          showAlertDialog(context);
-        },
-      ),
-    );
-  }
-}
-
-showAlertDialog(BuildContext context) {
-
-  // set up the button
-  Widget okButton = FlatButton(
-      child: Text("네."),
-      onPressed: () {}
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text("명언"),
-    content: StreamBuilder(
-        stream: Firestore.instance.collection('wise-saying').snapshots(),
-        builder: (context, snapshot){
-          if (! snapshot.hasData) return Text("Loading data...");
-          return Text(snapshot.data.documents[0]['today']);
-        }
-    ),
+    
     actions: [
-      okButton,
+      FlatButton(
+        child: Text(
+          "확인",
+          style: TextStyle(
+            fontSize: 15, color: Colors.white
+            )
+          ),
+
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) => TabScreen(),
+          )
+        );
+      }
+    ), 
     ],
-    backgroundColor: Colors.blueGrey,
+    backgroundColor: Colors.black,
   );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-
+  }
 }

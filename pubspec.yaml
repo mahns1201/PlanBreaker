@@ -19,6 +19,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -27,6 +29,7 @@ dependencies:
   cloud_firestore: ^0.13.5
   firebase_auth: ^0.16.0
   google_sign_in: ^4.4.6
+  provider: ^3.0.0+1
 
 
 dev_dependencies:
@@ -53,6 +56,16 @@ flutter:
    - images/bottombar/letter.png
    - images/bottombar/wiseSwitch.png
    - images/bottombar/setting.png
+   - images/block/crystal.png
+   - images/block/cloud.png
+   - images/wallHp/wallHp_sample.png
+   - images/pb.png
+  
+  fonts:
+    - family: Dot
+      fonts:
+       - asset: fonts/DungGeunMo.ttf
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

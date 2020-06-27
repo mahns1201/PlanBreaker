@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:planbreaker/widget/TodoPack.dart';
+import 'package:planbreaker/widget/HomeView.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMixin {
+
+  @override
+  bool get wantKeepAlive => true; //TabBar 정보 유지.
 
   @override
   void initState() {
@@ -16,18 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context)  {
     return Scaffold(
       body: Container(
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage("images/skybg.png"),fit: BoxFit.cover
-        //   ),
-        // ),
-        child: Stack(
-          children: <Widget>[
-            MyPopupMenu(),
-            HomeView(),
-            //TodoPack(),
-          ],
-        ),
+        child: HomeView(),
       )
     );
   }
